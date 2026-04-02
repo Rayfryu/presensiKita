@@ -1,20 +1,17 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# PresensiKita Deployment Guide
 
-# Run and deploy your AI Studio app
+## Vercel Settings
+Aplikasi ini menggunakan **Vite** (bukan Next.js). Pastikan pengaturan di Vercel sebagai berikut:
 
-This contains everything you need to run your app locally.
+- **Framework Preset:** Vite
+- **Build Command:** `npm run build`
+- **Output Directory:** `dist`
 
-View your app in AI Studio: https://ai.studio/apps/1704c197-d125-4a43-a705-9896d695f480
+## Environment Variables
+Anda **WAJIB** menambahkan variabel berikut di dashboard Vercel agar aplikasi tidak blank:
 
-## Run Locally
+1. `VITE_SUPABASE_URL`: Ambil dari Supabase Project Settings > API
+2. `VITE_SUPABASE_ANON_KEY`: Ambil dari Supabase Project Settings > API
 
-**Prerequisites:**  Node.js
-
-
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+## SQL Setup
+Pastikan Anda sudah menjalankan perintah SQL yang ada di file `supabase_schema.sql` di SQL Editor Supabase Anda sebelum menggunakan aplikasi.
